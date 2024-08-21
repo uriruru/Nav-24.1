@@ -1,0 +1,180 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="">
+      <img src="/images/Reu James Profile Image.jpg" alt="Logo"
+        style="border-radius: 50%; padding: 0 15px; height: 25px;">
+      <h3 style="line-height: 17px; color: black; font-family: sans-serif;">ReuJames <br> 
+        <span style="font-family: sans-serif; font-size: 13px; color: gray;">Frontend Developer</span>
+      </h3>
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navbarExampleTransparentExample" class="navbar-menu" style="font-size: 13px;">
+    <div class="navbar-end">
+      <a class="navbar-item" href="">
+        <span>Home</span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <hr>
+        <a style="font-weight: bolder;" class="navbar-link is-arrow" onclick="toggleProjects(event)">
+          Projects
+        </a>
+        <div id="projectsDropdown" class="navbar-dropdown is-boxed" style="display: none;">
+          <a class="navbar-item" href="">
+            Frontend Development
+          </a>
+          <a class="navbar-item" href="">
+            Backend Development
+          </a>
+          <a class="navbar-item" href="">
+            Web Design (Ui Design)
+          </a>
+          <a class="navbar-item" href="">
+            Video Projects
+          </a>
+          <a class="navbar-item" href="">
+            Fullstack Development
+          </a>
+          <a class="navbar-item" href="">
+            Drone Videography
+          </a>
+        </div>
+      </div>
+      <hr>
+
+      <a class="navbar-item" href="">
+        <span>Certificates</span>
+      </a>
+      <hr>
+
+      <a class="navbar-item" href="">
+        <span>Photos</span>
+      </a>
+      <hr>
+
+      <a class="navbar-item" href="">
+        <span>Blog</span>
+      </a>
+      <hr>
+
+      <a class="navbar-item" href="">
+        <span>Socials</span>
+      </a>
+      <hr>
+
+      <a class="navbar-item" href="">
+        <span>Real Estate</span>
+      </a>
+      <hr>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <style>
+            @keyframes gradientAnimation {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 40%; }
+              100% { background-position: 0% 50%; }
+            }
+            .custom-button {
+              background: linear-gradient(-30deg, #313131 0%, #323232 10%, #2c2c2c 62%, #111111 100%);
+              padding: 0 30px;
+              color: white;
+              font-size: 12px;
+              border: none;
+              animation: gradientAnimation 2s ease-in-out infinite;
+              background-size: 200% 200%;
+            }
+          </style> <!-- HTML -->
+
+          <div style="display: flex; align-items: center;">
+            <div class="online-indicator"></div>
+            <span id="statusText"><span style="font-weight: bold;">Online</span> | Ready to work</span>
+          </div>
+
+          <!-- CSS -->
+          <style>
+            #statusText {
+              font-family: sans-serif;
+              font-size: 16px;
+              color: black;
+              margin-left: 5px;
+            }
+
+            .online-indicator {
+              width: 11px;
+              height: 11px;
+              background-color: rgb(49, 132, 49);
+              border-radius: 50%;
+              position: relative;
+            }
+
+            .online-indicator::before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 100%;
+              height: 100%;
+              background-color: green;
+              border-radius: 50%;
+              transform: translate(-50%, -50%);
+              animation: pulse 1.5s ease-in-out infinite;
+              opacity: 0.6;
+            }
+
+            @keyframes pulse {
+              0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+              50% { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+              100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .navbar-item:hover {
+    background-color: transparent !important;
+    color: black !important;
+  }
+
+  .navbar-link.is-arrow::after {
+    content: none; /* Remove the arrow */
+  }
+</style>
+
+<script>
+  function toggleProjects(event) {
+    event.preventDefault();
+    var projectsDropdown = document.getElementById('projectsDropdown');
+    projectsDropdown.style.display = projectsDropdown.style.display === 'none' ? 'block' : 'none';
+  }
+
+  const navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  navbarBurgers.forEach(function (el) {
+    el.addEventListener('click', function () {
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+    });
+  });
+</script>
